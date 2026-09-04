@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>El Moufaddal Maadi | Full-Stack Developer & Automation</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="extra.css">
+  <link rel="stylesheet" href="inspired.css">
+  <link rel="stylesheet" href="modules.css">
+  <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+  <!-- Boot Screen -->
+  <div id="boot">
+    <div class="logo"><i></i><i></i><i></i><i></i></div>
+    <span></span>
+  </div>
+
+  <main class="os">
+    <!-- Atmospheric Rust Cohle Wallpaper Backdrop (Visible Noir Theme) -->
+    <div class="rust-wallpaper"></div>
+    <div class="rust-vignette"></div>
+
+    <!-- Smartphone Top Status Bar (Phone Mode <= 650px) -->
+    <div class="phone-status-bar">
+      <div class="phone-status-left">
+        <span class="phone-time-text" id="phone-status-time">20:28</span>
+        <span class="phone-carrier">5G</span>
+      </div>
+      <div class="phone-dynamic-island">
+        <span class="phone-camera-dot"></span>
+      </div>
+      <div class="phone-status-right">
+        <span>📶</span>
+        <span>100% 🔋</span>
+      </div>
+    </div>
+
+    <!-- Desktop / Phone Hero Section -->
+    <section class="hero">
+      <!-- Desktop Pill -->
+      <span class="edition-pill">▦ &nbsp; Windows 11 Portfolio Edition • Tangier</span>
+      
+      <!-- Phone Widget (Visible in phone mode) -->
+      <div class="phone-clock-widget">
+        <div class="phone-digital-time" id="phone-digital-time">20:28</div>
+        <div class="phone-date-sub" id="phone-date-sub">Thursday, 3 September</div>
+        <div class="phone-id-pill">
+          <img src="assets/cv-avatar.png" alt="El Moufaddal Maadi" class="phone-id-avatar">
+          <span>El Moufaddal Maadi • Full-Stack</span>
+        </div>
+      </div>
+
+      <!-- Desktop Hero Title -->
+      <h1 class="hero-name">
+        <span class="first-name">EL MOUFADDAL</span>
+        <b class="last-name">MAADI</b>
+      </h1>
+      <p id="subtitle">FULL-STACK DEVELOPER &nbsp;•&nbsp; AUTOMATION &amp; INFRASTRUCTURE &nbsp;•&nbsp; PROBLEM SOLVER</p>
+      <div class="hero-actions">
+        <button id="lang" class="hero-btn" title="Toggle English / Français">FR</button>
+      </div>
+    </section>
+
+    <!-- Desktop Icons / Phone Homescreen App Grid -->
+    <div class="icons" id="app-icons-grid">
+      <button data-app="about"><i class="indigo">♙</i><span>About Me</span></button>
+      <button data-app="skills"><i class="green">⚙</i><span>Skills</span></button>
+      <button data-app="projects"><i class="cyan">&lt;/&gt;</i><span>Projects</span></button>
+      <button data-app="experience"><i class="orange">♜</i><span>Experience</span></button>
+      <button data-app="education"><i class="purple">⌘</i><span>Education</span></button>
+      <button data-app="certifications"><i class="gold">★</i><span>Certificates</span></button>
+      <button data-app="contact"><i class="pink">✉</i><span>Contact Me</span></button>
+      <button data-app="resume"><i class="red">PDF</i><span>Resume.pdf</span></button>
+      <button data-app="terminal"><i class="black">›_</i><span>Terminal</span></button>
+      <button data-app="explorer"><i class="blue">▱</i><span>This PC</span></button>
+      <button data-app="bin"><i class="gray">♲</i><span>Recycle Bin</span></button>
+    </div>
+
+    <!-- Floating OS Windows / Fullscreen Mobile Apps -->
+    <div id="windows"></div>
+
+    <!-- Start Menu (Desktop Mode) -->
+    <aside id="startmenu">
+      <header>
+        <b>Pinned Apps</b>
+        <button id="close">×</button>
+      </header>
+      <div>
+        <button data-app="about">♙<small>About Me</small></button>
+        <button data-app="skills">⚙<small>Skills</small></button>
+        <button data-app="projects">&lt;/&gt;<small>Projects</small></button>
+        <button data-app="experience">♜<small>Experience</small></button>
+        <button data-app="education">⌘<small>Education</small></button>
+        <button data-app="certifications">★<small>Certificates</small></button>
+        <button data-app="contact">✉<small>Contact</small></button>
+        <button data-app="resume">▧<small>Resume</small></button>
+      </div>
+      <footer>
+        <img src="assets/cv-avatar.png" alt="El Moufaddal Maadi" class="start-avatar">
+        <span class="start-user-name">El Moufaddal Maadi</span>
+        <b>⏻</b>
+      </footer>
+    </aside>
+
+    <!-- Desktop Taskbar / Phone Floating Dock -->
+    <nav>
+      <div class="weather">☀ <span>28°C<br><small>Tangier, Morocco</small></span></div>
+      <div class="dock">
+        <button id="start" title="Start Menu"><i></i><i></i><i></i><i></i></button>
+        <button class="search">⌕　<span>Search apps & files</span></button>
+        <button data-app="about" title="About Me">♙</button>
+        <button data-app="projects" title="Projects">&lt;/&gt;</button>
+        <button data-app="skills" title="Skills">⚙</button>
+        <button data-app="experience" title="Experience">♜</button>
+        <button data-app="education" title="Education">⌘</button>
+        <button data-app="contact" title="Contact Me">✉</button>
+        <button data-app="terminal" title="Terminal">›_</button>
+        <button data-app="resume" title="Resume PDF">▧</button>
+      </div>
+      <div class="clock" id="clock"></div>
+    </nav>
+
+    <!-- Smartphone Bottom Home Swipe Indicator (Phone Mode <= 650px) -->
+    <div class="phone-home-indicator" id="phone-home-pill" title="Swipe home" onclick="closeAllMobileWindows()"></div>
+  </main>
+
+  <!-- Photo Lightbox Modal -->
+  <div id="lightbox" class="photo-lightbox" onclick="closeLightbox(event)">
+    <div class="photo-lightbox-card" onclick="event.stopPropagation()">
+      <img id="lightbox-img" class="photo-lightbox-img" src="" alt="Full view">
+      <div class="photo-lightbox-details">
+        <div>
+          <b id="lightbox-title" style="font-size:15px;color:#fff;display:block;"></b>
+        </div>
+        <button class="photo-lightbox-close" onclick="closeLightbox()">×</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global OS Toast Notification -->
+  <div id="toast" class="os-toast">
+    <span id="toast-icon">✓</span>
+    <span id="toast-msg">Notification</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
