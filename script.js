@@ -843,221 +843,41 @@ const apps = {
   ],
 
   resume: [
-    "ElMoufaddal_Resume.pdf — Microsoft Edge",
+    "ElMoufaddal__Resume.pdf",
     "📄",
     () => `
-      <div class="pdf-viewer-wrap">
-        <div class="pdf-toolbar">
-          <div class="pdf-title-info">
-            <span>📄</span>
-            <b>El_Moufaddal_Maadi_CV.pdf</b>
-          </div>
-
-          <div class="pdf-view-toggle">
-            <button class="pdf-toggle-btn active" id="btn-tab-digital" onclick="switchResumeTab('digital')">
-              📄 ${t("Interactive CV", "CV Interactif")}
-            </button>
-            <button class="pdf-toggle-btn" id="btn-tab-pdf" onclick="switchResumeTab('pdf')">
-              📑 ${t("PDF Embed", "Document PDF")}
-            </button>
-          </div>
-
-          <div class="pdf-toolbar-actions">
-            <a href="assets/ElMoufaddal_Maadi_CV.pdf" target="_blank" class="pdf-btn">↗ ${t("Open Tab", "Ouvrir")}</a>
-            <a href="assets/ElMoufaddal_Maadi_CV.pdf" download="El_Moufaddal_Maadi_CV.pdf" class="pdf-btn pdf-btn-primary">💾 ${t("Download PDF", "Télécharger")}</a>
-            <button onclick="window.print()" class="pdf-btn">🖨 ${t("Print", "Imprimer")}</button>
+      <div class="resume-card-wrap">
+        <!-- Layered 3D Red PDF Badge -->
+        <div class="resume-pdf-badge-container">
+          <div class="resume-pdf-badge-under"></div>
+          <div class="resume-pdf-badge-front">
+            <span class="resume-pdf-badge-text">PDF</span>
           </div>
         </div>
 
-        <!-- Mode 1: Pixel-Perfect Authentic Digital CV -->
-        <div id="resume-view-digital" class="digital-cv-sheet">
-          
-          <header class="cv-doc-header">
-            <img src="assets/pic1.jpeg" alt="El Moufaddal Maadi" class="cv-doc-avatar" onclick="openLightbox('assets/pic1.jpeg', 'El Moufaddal Maadi', 'Full-Stack Developer')">
-            <h1 class="cv-doc-name">El Moufaddal Maadi</h1>
-            <div class="cv-doc-subtitle">Développeur Full Stack</div>
-            <div class="cv-doc-contacts">
-              <a href="mailto:maadimfdal@gmail.com">✉ maadimfdal@gmail.com</a>
-              <span>•</span>
-              <a href="tel:+212631361235">☎ +212 631 361 235</a>
-              <span>•</span>
-              <span>📍 Tanger, Boukhalef</span>
-              <span>•</span>
-              <a href="https://www.linkedin.com/in/el-moufaddal-maadi/" target="_blank" rel="noreferrer">💼 LinkedIn</a>
-              <span>•</span>
-              <a href="https://github.com/Mfdalmaadi" target="_blank" rel="noreferrer">🐙 GitHub</a>
-              <span>•</span>
-              <span style="color:#0284c7; font-weight:600;">🌐 Portfolio OS</span>
-            </div>
-          </header>
+        <!-- Full Name -->
+        <h2 class="resume-card-name">El Moufaddal Maadi</h2>
 
-          <!-- PROFIL -->
-          <section class="cv-doc-section">
-            <h3 class="cv-doc-heading">PROFIL</h3>
-            <p class="cv-doc-p">
-              ${t(
-                "Développeur Full-Stack diplômé en génie informatique et en développement Web Full-Stack. Maîtrise de React, Laravel, Node.js, MySQL et Python, avec des compétences en API REST, bases de données, POO, je souhaite intégrer une équipe où je pourrai contribuer à des projets web modernes, apprendre rapidement et évoluer professionnellement.",
-                "Développeur Full-Stack diplômé en génie informatique et en développement Web Full-Stack. Maîtrise de React, Laravel, Node.js, MySQL et Python, avec des compétences en API REST, bases de données, POO, je souhaite intégrer une équipe où je pourrai contribuer à des projets web modernes, apprendre rapidement et évoluer professionnellement."
-              )}
-            </p>
-          </section>
+        <!-- Subtitle -->
+        <div class="resume-card-subtitle">Curriculum Vitae — Développeur Full Stack</div>
 
-          <!-- EXPÉRIENCE PROFESSIONNELLE -->
-          <section class="cv-doc-section">
-            <h3 class="cv-doc-heading">EXPÉRIENCE PROFESSIONNELLE</h3>
-            
-            <div class="cv-item-row">
-              <div class="cv-item-top">
-                <span class="cv-item-title">Web Media Networks, <span style="font-weight:400; color:#475569;">Analyste Développeur — Automatisation &amp; Infrastructure Email</span></span>
-                <span class="cv-item-date">08/2025 – 08/2026 &nbsp;|&nbsp; Tanger</span>
-              </div>
-              <ul class="cv-item-bullets">
-                <li>Développement de scripts d'automatisation pour optimiser les tâches répétitives et traiter les données.</li>
-                <li>Analyse et résolution de problèmes liés à la délivrabilité des emails et aux adresses IP.</li>
-                <li>Optimisation des processus techniques et réduction des tâches manuelles.</li>
-              </ul>
-            </div>
+        <!-- Description Paragraph -->
+        <p class="resume-card-desc">
+          Updated resume with Web Media Networks experience, HIGH-TECH engineering degree, OFPPT, Cisco &amp; efe Maroc certifications.
+        </p>
 
-            <div class="cv-item-row">
-              <div class="cv-item-top">
-                <span class="cv-item-title">HD-Maroc, <span style="font-weight:400; color:#475569;">Web Developer Intern</span></span>
-                <span class="cv-item-date">04/2025 – 05/2025 &nbsp;|&nbsp; Tanger</span>
-              </div>
-              <ul class="cv-item-bullets">
-                <li>J'ai créé un site Web de coaching avec WordPress + Elementor. Livré un site clair et responsive aligné sur l'identité visuelle du client, améliorant la présentation des services et la prise de contact.</li>
-              </ul>
-            </div>
-          </section>
-
-          <!-- FORMATION ACADÉMIQUE -->
-          <section class="cv-doc-section">
-            <h3 class="cv-doc-heading">FORMATION ACADÉMIQUE</h3>
-            
-            <div class="cv-item-row">
-              <div class="cv-item-top">
-                <span class="cv-item-title">Licence en Sciences de l'Ingénieur – Option Génie Informatique</span>
-                <span class="cv-item-date">10/2025 – 06/2026 &nbsp;|&nbsp; Rabat</span>
-              </div>
-              <div class="cv-item-sub">HIGH-TECH – École des Hautes Études en Ingénierie et Technologie</div>
-            </div>
-
-            <div class="cv-item-row">
-              <div class="cv-item-top">
-                <span class="cv-item-title">Technicien Spécialisé en Développement Digital – Option Web Full-Stack</span>
-                <span class="cv-item-date">09/2023 – 06/2025 &nbsp;|&nbsp; Tanger</span>
-              </div>
-              <div class="cv-item-sub">OFPPT ISTA NTIC Tanger</div>
-            </div>
-
-            <div class="cv-item-row">
-              <div class="cv-item-top">
-                <span class="cv-item-title">Filière Sciences de la Matière Physique (SMP)</span>
-                <span class="cv-item-date">10/2022 – 06/2023 &nbsp;|&nbsp; Larache</span>
-              </div>
-              <div class="cv-item-sub">FACULTÉ POLYDISCIPLINAIRE DE LARACHE</div>
-            </div>
-
-            <div class="cv-item-row">
-              <div class="cv-item-top">
-                <span class="cv-item-title">Baccalauréat Sciences Physiques</span>
-                <span class="cv-item-date">09/2021 – 06/2022</span>
-              </div>
-              <div class="cv-item-sub">Lycée Mansour Dahbi</div>
-            </div>
-          </section>
-
-          <!-- PROJETS -->
-          <section class="cv-doc-section">
-            <h3 class="cv-doc-heading">PROJETS</h3>
-            
-            <div class="cv-item-row">
-              <div class="cv-item-top">
-                <span class="cv-item-title">MedPredict AI – Plateforme d'Aide au Diagnostic Médical basée sur l'IA</span>
-              </div>
-              <div class="cv-item-sub">Technologies : FastAPI • React • Python • Scikit-learn • SHAP • MySQL • SQLAlchemy • JWT</div>
-              <ul class="cv-item-bullets">
-                <li>Développement d'une plateforme d'aide au diagnostic basée sur l'IA avec FastAPI et React.</li>
-                <li>Conception d'une API REST sécurisée avec authentification JWT et gestion des utilisateurs/patients.</li>
-                <li>Développement d'un modèle Random Forest avec explicabilité des prédictions via SHAP et intégration à MySQL.</li>
-              </ul>
-            </div>
-
-            <div class="cv-item-row">
-              <div class="cv-item-top">
-                <span class="cv-item-title">THE GUIDE – Plateforme Touristique Full-Stack</span>
-              </div>
-              <div class="cv-item-sub">Technologies : React • Laravel • MySQL</div>
-              <ul class="cv-item-bullets">
-                <li>Développement d'une plateforme touristique dédiée aux visiteurs du nord du Maroc.</li>
-                <li>Conception d'une API REST sécurisée avec authentification multi-rôles.</li>
-                <li>Développement de tableaux de bord, gestion des réservations et cartes interactives pour les différents acteurs.</li>
-              </ul>
-            </div>
-          </section>
-
-          <!-- COMPÉTENCES -->
-          <section class="cv-doc-section">
-            <h3 class="cv-doc-heading">COMPÉTENCES</h3>
-            <div class="cv-skills-category"><b>Langages :</b> PHP, JavaScript (ES6+), Python, SQL, Java</div>
-            <div class="cv-skills-category"><b>Frontend :</b> React.js, HTML5, CSS3, Bootstrap, WordPress, Elementor</div>
-            <div class="cv-skills-category"><b>Backend :</b> Laravel, Node.js, Express.js, Spring Boot, API REST, Architecture MVC</div>
-            <div class="cv-skills-category"><b>Bases de Données :</b> MySQL, MongoDB, Oracle, Modélisation des données</div>
-            <div class="cv-skills-category"><b>Outils &amp; Environnement :</b> Git, GitHub, Docker, Postman</div>
-          </section>
-
-          <!-- SOFT SKILLS -->
-          <section class="cv-doc-section">
-            <h3 class="cv-doc-heading">SOFT SKILLS</h3>
-            <div class="cv-soft-chips">
-              <div>• Résolution de problèmes</div>
-              <div>• Esprit d'équipe</div>
-              <div>• Adaptabilité</div>
-              <div>• Communication</div>
-              <div>• Apprentissage continu</div>
-              <div>• Gestion du temps</div>
-            </div>
-          </section>
-
-          <!-- CERTIFICATIONS -->
-          <section class="cv-doc-section">
-            <h3 class="cv-doc-heading">CERTIFICATIONS</h3>
-            <div class="cv-cert-grid">
-              <div class="cv-cert-card">
-                <b>SQL</b>
-                <small>365 Data Science</small>
-              </div>
-              <div class="cv-cert-card">
-                <b>Python Essentials 1</b>
-                <small>Cisco Networking Academy</small>
-              </div>
-              <div class="cv-cert-card">
-                <b>Computer Hardware Basics</b>
-                <small>Cisco Networking Academy</small>
-              </div>
-              <div class="cv-cert-card">
-                <b>Soft Skills</b>
-                <small>efe Maroc</small>
-              </div>
-            </div>
-          </section>
-
-          <!-- LANGUES -->
-          <section class="cv-doc-section">
-            <h3 class="cv-doc-heading">LANGUES</h3>
-            <div class="cv-soft-chips">
-              <div><b>Arabe :</b> Langue maternelle</div>
-              <div><b>Français :</b> Intermédiaire</div>
-              <div><b>Anglais :</b> Professionnel</div>
-            </div>
-          </section>
-
+        <!-- Two Action Buttons -->
+        <div class="resume-card-actions">
+          <a href="assets/ElMoufaddal_Maadi_CV.pdf" target="_blank" class="resume-card-btn resume-card-btn-primary">
+            <span class="btn-icon">📄</span>
+            <span>${t("Open Resume in New Tab", "Ouvrir le CV dans un nouvel onglet")}</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+          <a href="assets/ElMoufaddal_Maadi_CV.pdf" download="El_Moufaddal_Maadi_CV.pdf" class="resume-card-btn resume-card-btn-download">
+            <span class="btn-icon">💾</span>
+            <span>${t("Download PDF", "Télécharger PDF")}</span>
+          </a>
         </div>
-
-        <!-- Mode 2: Embedded PDF View -->
-        <div id="resume-view-pdf" style="display:none; width:100%; height:100%; min-height:540px; flex:1;">
-          <iframe src="assets/ElMoufaddal_Maadi_CV.pdf#toolbar=1&navpanes=0" class="pdf-frame" title="Resume PDF"></iframe>
-        </div>
-
       </div>
     `,
   ],
