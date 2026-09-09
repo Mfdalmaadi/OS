@@ -1195,15 +1195,20 @@ function openApp(name) {
     return;
   }
 
-  const isMobile = window.innerWidth <= 768;
-  windowOffset = (windowOffset + 24) % 140;
-  let leftPos = isMobile ? 8 : Math.max(20, Math.min(80 + windowOffset, window.innerWidth - 880));
-  let topPos = isMobile ? 46 : Math.max(20, Math.min(40 + windowOffset / 2, window.innerHeight - 620));
+  const isMobile = window.innerWidth <= 900 || document.body.classList.contains("phone-mode");
 
   let w = document.createElement("section");
   w.className = "window " + (appData[3] || "");
   w.dataset.name = name;
-  w.style.cssText = `left:${leftPos}px;top:${topPos}px;z-index:${++zIndexCounter}`;
+  if (isMobile) {
+    w.classList.add("mobile-fullscreen");
+    w.style.zIndex = ++zIndexCounter;
+  } else {
+    windowOffset = (windowOffset + 24) % 140;
+    let leftPos = Math.max(20, Math.min(80 + windowOffset, window.innerWidth - 880));
+    let topPos = Math.max(20, Math.min(40 + windowOffset / 2, window.innerHeight - 620));
+    w.style.cssText = `left:${leftPos}px;top:${topPos}px;z-index:${++zIndexCounter}`;
+  }
   w.innerHTML = `
     <div class="bar">
       <b class="symbol">${appData[1]}</b>
@@ -1240,8 +1245,17 @@ function openApp(name) {
   };
 
   if (name === "terminal") enableTerminal(w);
-  enableWindowDrag(w);
+  if (!isMobile) enableWindowDrag(w);
   updateTaskbarIndicators();
+}
+
+function closeTopWindow() {
+  const openWins = document.querySelectorAll(".window");
+  if (openWins.length > 0) {
+    const lastWin = openWins[openWins.length - 1];
+    lastWin.remove();
+    updateTaskbarIndicators();
+  }
 }
 
 function updateTaskbarIndicators() {

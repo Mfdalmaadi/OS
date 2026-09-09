@@ -2988,50 +2988,55 @@ body {
 }
 
 /* ============================================================
-   MOBILE RESPONSIVENESS (<= 768px) & SMARTPHONE PREVIEW MODE
+   MOBILE RESPONSIVENESS (<= 992px) & SMARTPHONE MODE OVERHAUL
    ============================================================ */
-@media (max-width: 768px) {
-  /* Hide desktop hero elements */
+@media (max-width: 900px) {
+  /* Hide all desktop OS elements */
+  .win11-taskbar,
+  .win11-start-menu,
+  .win-widgets-panel,
+  .quick-settings-flyout,
+  .calendar-flyout,
   .edition-pill,
   .hero-actions,
-  #subtitle {
+  #subtitle,
+  .hero-name,
+  .notif-count-badge {
     display: none !important;
   }
 
-  /* Hide desktop hero typography on phone — phone clock widget replaces it */
-  .hero-name {
-    display: none !important;
+  /* Desktop surface becomes a scrollable phone viewport */
+  #desktop-surface {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    min-height: 100vh !important;
+    height: auto !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 0 34px !important;
+    position: relative !important;
   }
 
-  /* Hero is reused as the lockscreen clock container */
-  .hero {
-    top: 52px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    padding: 0 14px !important;
-    margin: 0 auto !important;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    max-width: 440px;
-  }
-
-  /* Show phone status bar */
+  /* Top Smartphone Status Bar */
   .phone-status-bar {
     display: flex !important;
     align-items: center;
     justify-content: space-between;
-    height: 46px;
+    height: 44px;
     padding: 0 16px;
-    position: absolute;
+    position: fixed !important;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 920;
+    z-index: 9999;
     font-size: 13px;
     font-weight: 600;
     color: #fff;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, transparent 100%);
+    backdrop-filter: blur(12px);
   }
 
   .phone-status-left {
@@ -3047,16 +3052,16 @@ body {
   }
 
   .phone-carrier {
-    font-size: 10.5px;
+    font-size: 10px;
     font-weight: 800;
     color: rgba(255,255,255,0.9);
     background: rgba(255,255,255,0.18);
-    padding: 1px 6px;
+    padding: 1px 5px;
     border-radius: 4px;
   }
 
   .phone-dynamic-island {
-    width: 114px;
+    width: 112px;
     height: 28px;
     background: #000;
     border-radius: 14px;
@@ -3064,7 +3069,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 0 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.12);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.14);
     cursor: pointer;
     transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
@@ -3089,55 +3094,72 @@ body {
     font-size: 11.5px;
   }
 
-  /* Show phone clock widget — BIG iOS lockscreen clock */
+  /* Smartphone Hero Section (Flows naturally without overlap) */
+  .hero {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    margin: 52px auto 14px !important;
+    padding: 0 16px !important;
+    width: 100% !important;
+    max-width: 440px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    z-index: 5 !important;
+  }
+
   .phone-clock-widget {
     display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 20px;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
   }
 
   .phone-digital-time {
-    font-family: 'Outfit', -apple-system, sans-serif;
-    font-size: clamp(54px, 14vw, 74px);
-    font-weight: 300;
-    line-height: 0.95;
-    color: #fff;
-    letter-spacing: -3px;
-    text-shadow: 0 4px 26px rgba(0,0,0,0.9);
+    font-family: 'Outfit', -apple-system, sans-serif !important;
+    font-size: clamp(52px, 14vw, 70px) !important;
+    font-weight: 300 !important;
+    line-height: 0.95 !important;
+    color: #fff !important;
+    letter-spacing: -3px !important;
+    text-shadow: 0 4px 26px rgba(0,0,0,0.9) !important;
+    margin: 0 !important;
   }
 
   .phone-date-sub {
-    font-size: 13.5px;
-    font-weight: 500;
-    color: rgba(255,255,255,0.88);
-    letter-spacing: 0.02em;
-    margin: 4px 0 16px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: rgba(255,255,255,0.88) !important;
+    letter-spacing: 0.02em !important;
+    margin: 4px 0 14px !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.9) !important;
   }
 
   /* Centered Mobile Profile Identity Card */
   .phone-profile-card {
     display: flex !important;
-    align-items: center;
-    gap: 12px;
-    background: rgba(18, 24, 38, 0.76);
-    backdrop-filter: blur(24px) saturate(190%);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 18px;
-    padding: 12px 14px;
-    width: 100%;
-    text-align: left;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-    cursor: pointer;
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s;
+    align-items: center !important;
+    gap: 12px !important;
+    background: rgba(18, 24, 38, 0.78) !important;
+    backdrop-filter: blur(24px) saturate(190%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border-radius: 18px !important;
+    padding: 12px 14px !important;
+    width: 100% !important;
+    text-align: left !important;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6) !important;
+    cursor: pointer !important;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s !important;
   }
 
-  .phone-profile-card:hover {
-    background: rgba(28, 36, 56, 0.88);
-    border-color: rgba(56, 189, 248, 0.45);
-    transform: translateY(-2px);
+  .phone-profile-card:hover,
+  .phone-profile-card:active {
+    background: rgba(28, 36, 56, 0.88) !important;
+    border-color: rgba(56, 189, 248, 0.45) !important;
+    transform: translateY(-2px) !important;
   }
 
   .phone-avatar-box {
@@ -3173,163 +3195,209 @@ body {
   }
 
   .phone-profile-name {
-    font-family: 'Outfit', sans-serif;
-    font-size: 15px;
-    font-weight: 800;
-    color: #fff;
-    margin: 0 0 2px;
-    letter-spacing: -0.3px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    color: #fff !important;
+    margin: 0 0 2px !important;
+    letter-spacing: -0.3px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 
   .phone-profile-title {
-    font-size: 11px;
-    font-weight: 600;
-    color: #38bdf8;
-    display: block;
-    margin-bottom: 3px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    color: #38bdf8 !important;
+    display: block !important;
+    margin-bottom: 3px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 
   .phone-profile-tags {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 10px;
-    color: #94a3b8;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    font-size: 10px !important;
+    color: #94a3b8 !important;
   }
 
   .phone-tag-avail {
-    color: #4ade80;
-    font-weight: 600;
+    color: #4ade80 !important;
+    font-weight: 600 !important;
   }
 
   /* Mobile Quick Action Pills */
   .phone-action-pills {
     display: grid !important;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 6px;
-    width: 100%;
-    margin-top: 12px;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 6px !important;
+    width: 100% !important;
+    margin-top: 12px !important;
   }
 
   .phone-pill-btn {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    border-radius: 12px;
-    padding: 8px 3px;
-    font-size: 10.5px;
-    font-weight: 600;
-    color: #f1f5f9;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3px;
-    transition: all 0.15s ease;
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    border-radius: 12px !important;
+    padding: 8px 2px !important;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    color: #f1f5f9 !important;
+    cursor: pointer !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 3px !important;
+    transition: all 0.15s ease !important;
   }
 
   .phone-pill-btn:active,
   .phone-pill-btn:hover {
-    background: rgba(56, 189, 248, 0.25);
-    border-color: rgba(56, 189, 248, 0.5);
-    transform: scale(0.96);
+    background: rgba(56, 189, 248, 0.25) !important;
+    border-color: rgba(56, 189, 248, 0.5) !important;
+    transform: scale(0.96) !important;
   }
 
   .phone-pill-primary {
-    background: rgba(14, 165, 233, 0.25);
-    border-color: rgba(56, 189, 248, 0.45);
+    background: rgba(14, 165, 233, 0.25) !important;
+    border-color: rgba(56, 189, 248, 0.45) !important;
   }
 
-  /* Show phone home swipe bar at very bottom */
-  .phone-home-indicator {
-    display: block !important;
-    position: absolute;
-    bottom: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.65);
-    border-radius: 3px;
-    z-index: 930;
-    cursor: pointer;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.5);
-  }
-
-  /* Icons become bottom app dock */
+  /* Smartphone Homescreen App Grid (Positioned naturally below hero) */
   .icons {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 8px 4px;
-    top: auto;
-    bottom: 26px;
-    left: 10px;
-    right: 10px;
-    background: rgba(15, 23, 42, 0.68);
-    backdrop-filter: blur(28px) saturate(190%);
-    border-radius: 22px;
-    padding: 10px 6px;
-    border: 1px solid rgba(255,255,255,0.14);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    margin: 0 auto 28px !important;
+    width: calc(100% - 28px) !important;
+    max-width: 440px !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 14px 6px !important;
+    background: rgba(15, 23, 42, 0.68) !important;
+    backdrop-filter: blur(28px) saturate(190%) !important;
+    border-radius: 24px !important;
+    padding: 14px 8px !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.6) !important;
+    z-index: 5 !important;
   }
 
   .desktop-icon-btn {
-    width: auto;
-    height: 58px;
-    font-size: 9px;
-    gap: 2px;
+    width: 100% !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 4px !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 2px 0 !important;
+    transition: transform 0.15s ease !important;
   }
 
-  .icon-bubble {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
+  .desktop-icon-btn:active {
+    transform: scale(0.92) !important;
   }
 
-  .desktop-icon-btn[data-app="skills"],
-  .desktop-icon-btn[data-app="experience"],
-  .desktop-icon-btn[data-app="education"],
-  .desktop-icon-btn[data-app="bin"] {
-    display: none;
-  }
-
-  /* Mobile taskbar hidden */
-  .win11-taskbar {
-    height: 0;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  /* Windows open fullscreen sheet on mobile */
-  .window {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    left: 0 !important;
-    right: 0 !important;
-    top: 42px !important;
-    bottom: 0 !important;
-    height: calc(100vh - 42px) !important;
-    max-height: calc(100vh - 42px) !important;
-    border-radius: 22px 22px 0 0 !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    border-bottom: none !important;
-    box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.8) !important;
-  }
-
-  .window-title-bar {
+  .desktop-icon-btn .icon-bubble {
+    width: 44px !important;
     height: 44px !important;
-    padding: 0 12px !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
   }
 
-  .window-content {
-    padding: 14px 12px 40px !important;
+  .desktop-icon-btn span {
+    font-size: 10px !important;
+    font-weight: 500 !important;
+    color: #f1f5f9 !important;
+    text-align: center !important;
+    line-height: 1.1 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 68px !important;
+  }
+
+  .desktop-icon-btn[data-app="bin"] {
+    display: none !important;
+  }
+
+  /* Bottom Home Swipe Bar Indicator */
+  .phone-home-indicator {
+    display: block !important;
+    position: fixed !important;
+    bottom: 8px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 130px !important;
+    height: 5px !important;
+    background: rgba(255, 255, 255, 0.75) !important;
+    border-radius: 3px !important;
+    z-index: 999999 !important;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.6) !important;
+    cursor: pointer !important;
+  }
+
+  /* Windows open fullscreen on mobile */
+  #windows .window {
+    width: calc(100vw - 16px) !important;
+    left: 8px !important;
+    right: auto !important;
+    top: 46px !important;
+    bottom: auto !important;
+    max-height: calc(100vh - 80px) !important;
+    height: calc(100vh - 80px) !important;
+    border-radius: 16px !important;
+    position: fixed !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    z-index: 10000 !important;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.6) !important;
+    animation: mobileAppIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  @keyframes mobileAppIn {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  #windows .window .bar {
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 0 0 0 14px !important;
+    border-radius: 16px 16px 0 0 !important;
+  }
+
+  #windows .window .bar .min,
+  #windows .window .bar .max {
+    display: none !important;
+  }
+
+  #windows .window .bar .x {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 0 16px 0 0 !important;
+  }
+
+  #windows .window .content {
+    flex: 1 !important;
+    height: calc(100vh - 126px) !important;
+    max-height: calc(100vh - 126px) !important;
     overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch !important;
   }
 
   .about-hero-card {
@@ -3367,211 +3435,131 @@ body {
   .cv-soft-chips {
     grid-template-columns: 1fr;
   }
-
-  .win11-start-menu {
-    width: calc(100vw - 16px);
-    max-height: 80vh;
-    padding: 18px 16px 0;
-    bottom: 10px;
-  }
-
-  .start-pinned-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .start-recommended-list {
-    grid-template-columns: 1fr;
-  }
-
-  .notif-count-badge {
-    display: none;
-  }
 }
 
 /* ============================================================
-   SMARTPHONE PREVIEW MODE TOGGLE (DESKTOP PREVIEW)
+   SMARTPHONE PREVIEW MODE TOGGLE (APPLIES SAME TO BODY.PHONE-MODE)
    ============================================================ */
+body.phone-mode .win11-taskbar,
+body.phone-mode .win11-start-menu,
+body.phone-mode .win-widgets-panel,
+body.phone-mode .quick-settings-flyout,
+body.phone-mode .calendar-flyout,
 body.phone-mode .edition-pill,
 body.phone-mode .hero-actions,
 body.phone-mode #subtitle,
-body.phone-mode .hero-name {
+body.phone-mode .hero-name,
+body.phone-mode .notif-count-badge {
   display: none !important;
 }
 
-body.phone-mode .hero {
-  top: 52px !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  padding: 0 14px !important;
-  margin: 0 auto !important;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-  max-width: 440px;
+body.phone-mode #desktop-surface {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  min-height: 100vh !important;
+  height: auto !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  padding: 0 0 34px !important;
 }
 
 body.phone-mode .phone-status-bar {
   display: flex !important;
-  align-items: center;
-  justify-content: space-between;
-  height: 46px;
-  padding: 0 16px;
-  position: absolute;
+  position: fixed !important;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 920;
-  font-size: 13px;
-  font-weight: 600;
-  color: #fff;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 100%);
+  z-index: 9999;
+}
+
+body.phone-mode .hero {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+  margin: 52px auto 14px !important;
+  padding: 0 16px !important;
+  width: 100% !important;
+  max-width: 440px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
 }
 
 body.phone-mode .phone-clock-widget {
   display: flex !important;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 20px;
 }
 
 body.phone-mode .phone-digital-time {
-  font-family: 'Outfit', -apple-system, sans-serif;
-  font-size: clamp(54px, 14vw, 74px);
-  font-weight: 300;
-  line-height: 0.95;
-  color: #fff;
-  letter-spacing: -3px;
-  text-shadow: 0 4px 26px rgba(0,0,0,0.9);
-}
-
-body.phone-mode .phone-date-sub {
-  font-size: 13.5px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.88);
-  letter-spacing: 0.02em;
-  margin: 4px 0 16px;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+  font-size: 64px !important;
 }
 
 body.phone-mode .phone-profile-card {
   display: flex !important;
-  align-items: center;
-  gap: 12px;
-  background: rgba(18, 24, 38, 0.76);
-  backdrop-filter: blur(24px) saturate(190%);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 18px;
-  padding: 12px 14px;
-  width: 100%;
-  text-align: left;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-  cursor: pointer;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s;
-}
-
-body.phone-mode .phone-profile-card:hover {
-  background: rgba(28, 36, 56, 0.88);
-  border-color: rgba(56, 189, 248, 0.45);
-  transform: translateY(-2px);
 }
 
 body.phone-mode .phone-action-pills {
   display: grid !important;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 6px;
-  width: 100%;
-  margin-top: 12px;
 }
 
-body.phone-mode .phone-pill-btn {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 12px;
-  padding: 8px 3px;
-  font-size: 10.5px;
-  font-weight: 600;
-  color: #f1f5f9;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
-  transition: all 0.15s ease;
+body.phone-mode .icons {
+  position: relative !important;
+  top: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  margin: 0 auto 28px !important;
+  width: calc(100% - 28px) !important;
+  max-width: 440px !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 14px 6px !important;
+}
+
+body.phone-mode .desktop-icon-btn {
+  width: 100% !important;
+  height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+body.phone-mode .desktop-icon-btn[data-app="bin"] {
+  display: none !important;
 }
 
 body.phone-mode .phone-home-indicator {
   display: block !important;
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.65);
-  border-radius: 3px;
-  z-index: 930;
-  cursor: pointer;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.5);
+  position: fixed !important;
+  bottom: 8px !important;
 }
 
-body.phone-mode .icons {
-  grid-template-columns: repeat(5, 1fr);
-  gap: 8px 4px;
-  top: auto;
-  bottom: 26px;
-  left: 10px;
-  right: 10px;
-  background: rgba(15, 23, 42, 0.68);
-  backdrop-filter: blur(28px) saturate(190%);
-  border-radius: 22px;
-  padding: 10px 6px;
-  border: 1px solid rgba(255,255,255,0.14);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+body.phone-mode #windows .window {
+  position: fixed !important;
+  width: calc(100vw - 16px) !important;
+  left: 8px !important;
+  right: auto !important;
+  top: 46px !important;
+  bottom: auto !important;
+  max-height: calc(100vh - 80px) !important;
+  height: calc(100vh - 80px) !important;
+  border-radius: 16px !important;
+  z-index: 10000 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6) !important;
 }
 
-body.phone-mode .desktop-icon-btn {
-  width: auto;
-  height: 58px;
-  font-size: 9px;
-  gap: 2px;
-}
-
-body.phone-mode .desktop-icon-btn[data-app="skills"],
-body.phone-mode .desktop-icon-btn[data-app="experience"],
-body.phone-mode .desktop-icon-btn[data-app="education"],
-body.phone-mode .desktop-icon-btn[data-app="bin"] {
-  display: none;
-}
-
-body.phone-mode .win11-taskbar {
+body.phone-mode #windows .window .bar .min,
+body.phone-mode #windows .window .bar .max {
   display: none !important;
-}
-
-body.phone-mode .window {
-  width: 440px !important;
-  max-width: 95vw !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  top: 44px !important;
-  bottom: 14px !important;
-  height: calc(100vh - 60px) !important;
-  max-height: calc(100vh - 60px) !important;
-  border-radius: 22px !important;
-  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.85) !important;
 }
 
 body.phone-mode .projects-cards-grid {
   grid-template-columns: 1fr !important;
 }
 
-body.phone-mode .about-hero-card {
-  grid-template-columns: 1fr !important;
-  text-align: center;
-}
-
-body.phone-mode .about-highlights-row {
-  grid-template-columns: 1fr !important;
-}
 
