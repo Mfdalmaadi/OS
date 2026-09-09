@@ -45,13 +45,33 @@
         <span>Windows 11 Portfolio Edition • Tangier, Morocco</span>
       </div>
 
-      <!-- Smartphone Clock Widget (Phone Mode Only <= 768px) -->
+      <!-- Smartphone Clock & Centered Profile Widget (Phone Mode <= 768px / phone-mode) -->
       <div class="phone-clock-widget">
         <div class="phone-digital-time" id="phone-digital-time">22:30</div>
         <div class="phone-date-sub" id="phone-date-sub">Thursday, September 8</div>
-        <div class="phone-id-pill" onclick="openApp('about')">
-          <img src="assets/pic1.jpeg" alt="El Moufaddal Maadi" class="phone-id-avatar">
-          <span>El Moufaddal Maadi • Full-Stack</span>
+        
+        <!-- Centered Mobile Profile Identity Card -->
+        <div class="phone-profile-card" onclick="openApp('about')">
+          <div class="phone-avatar-box">
+            <img src="assets/pic1.jpeg" alt="El Moufaddal Maadi" class="phone-avatar-img">
+            <span class="phone-online-dot"></span>
+          </div>
+          <div class="phone-profile-meta">
+            <h2 class="phone-profile-name">EL MOUFADDAL MAADI</h2>
+            <span class="phone-profile-title">Full-Stack Developer &bull; Automation</span>
+            <div class="phone-profile-tags">
+              <span class="phone-tag-loc">📍 Tangier, Boukhalef</span>
+              <span class="phone-tag-avail">🟢 Open to Work</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Quick Actions -->
+        <div class="phone-action-pills">
+          <button class="phone-pill-btn phone-pill-primary" onclick="openApp('about')"><span>👤</span> About Me</button>
+          <button class="phone-pill-btn" onclick="openApp('projects')"><span>💻</span> Projects</button>
+          <button class="phone-pill-btn" onclick="openApp('resume')"><span>📄</span> CV (PDF)</button>
+          <button class="phone-pill-btn" onclick="openApp('contact')"><span>✉</span> Contact</button>
         </div>
       </div>
 
@@ -456,6 +476,9 @@
           <span class="tray-item">🔊</span>
           <span class="tray-item">🔋</span>
         </div>
+
+        <!-- Smartphone Mode Preview Button -->
+        <button class="tray-btn phone-toggle-btn" id="btn-phone-mode" onclick="togglePhoneMode()" title="Toggle Smartphone Mode (Preview Mobile)">📱</button>
 
         <!-- Language Switcher -->
         <button class="tray-btn lang-pill" id="tray-lang" onclick="toggleLanguage()" title="Toggle Language (EN / FR)">ENG</button>

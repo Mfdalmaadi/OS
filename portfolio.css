@@ -184,10 +184,10 @@ body {
   align-items: center;
   text-align: center;
   pointer-events: auto;
-  max-width: 740px;
+  max-width: 760px;
+  width: 100%;
   padding: 0 20px;
-  /* Offset slightly right to clear left icon panel */
-  margin-left: 90px;
+  margin: 0 auto;
 }
 
 .edition-pill {
@@ -203,7 +203,7 @@ body {
   font-weight: 500;
   color: #cbd5e1;
   letter-spacing: 0.04em;
-  margin-bottom: 14px;
+  margin: 0 auto 14px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 }
 
@@ -222,15 +222,16 @@ body {
 
 .hero-name {
   font-family: 'Outfit', 'Segoe UI', sans-serif;
-  font-size: clamp(36px, 4.8vw, 68px);
+  font-size: clamp(38px, 5vw, 68px);
   font-weight: 800;
   line-height: 0.95;
   letter-spacing: -2px;
-  margin: 0;
+  margin: 0 auto;
   text-shadow: 0 6px 30px rgba(0, 0, 0, 0.85);
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .first-name {
@@ -248,7 +249,8 @@ body {
   font-size: 12px;
   letter-spacing: 2px;
   color: #94a3b8;
-  margin: 14px 0 22px;
+  margin: 14px auto 22px;
+  text-align: center;
   font-weight: 500;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
 }
@@ -259,6 +261,7 @@ body {
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 0 auto;
 }
 
 .hero-btn {
@@ -2715,7 +2718,277 @@ body {
 .term-danger { color: #f87171; }
 
 /* ============================================================
-   MOBILE RESPONSIVENESS (<= 768px)
+   DIGITAL CV / RESUME VIEWER STYLES
+   ============================================================ */
+.pdf-viewer-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 520px;
+}
+
+.pdf-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background: rgba(18, 24, 38, 0.85);
+  border-bottom: 1px solid var(--win-border-subtle);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pdf-title-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--win-text);
+}
+
+.pdf-view-toggle {
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 2px;
+}
+
+.pdf-toggle-btn {
+  background: transparent;
+  border: none;
+  color: var(--win-text-muted);
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pdf-toggle-btn.active {
+  background: var(--win-accent);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 120, 212, 0.4);
+}
+
+.pdf-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--win-text);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.pdf-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+
+.pdf-btn-primary {
+  background: var(--win-accent);
+  border-color: #38bdf8;
+  color: #fff;
+}
+
+.pdf-btn-primary:hover {
+  background: #0086f0;
+}
+
+.pdf-frame {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  border: none;
+  flex: 1;
+}
+
+/* Authentic Pixel-Perfect Digital CV Document */
+.digital-cv-sheet {
+  background: #ffffff;
+  color: #1e293b;
+  border-radius: 12px;
+  padding: 32px 36px;
+  max-width: 820px;
+  margin: 16px auto;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  font-family: 'Segoe UI', -apple-system, sans-serif;
+  line-height: 1.45;
+}
+
+.digital-cv-sheet * {
+  box-sizing: border-box;
+}
+
+.cv-doc-header {
+  text-align: center;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+}
+
+.cv-doc-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #0284c7;
+  margin-bottom: 8px;
+}
+
+.cv-doc-name {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.cv-doc-subtitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0284c7;
+  margin: 3px 0 10px;
+}
+
+.cv-doc-contacts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  font-size: 11.5px;
+  color: #475569;
+}
+
+.cv-doc-contacts a {
+  color: #0284c7;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.cv-doc-contacts a:hover {
+  text-decoration: underline;
+}
+
+.cv-doc-section {
+  margin-bottom: 18px;
+}
+
+.cv-doc-heading {
+  font-size: 13px;
+  font-weight: 800;
+  color: #0284c7;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1.5px solid #0284c7;
+  padding-bottom: 3px;
+  margin: 0 0 10px;
+}
+
+.cv-doc-p {
+  font-size: 12px;
+  color: #334155;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.cv-item-row {
+  margin-bottom: 12px;
+}
+
+.cv-item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.cv-item-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.cv-item-date {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.cv-item-sub {
+  font-size: 11.5px;
+  font-style: italic;
+  color: #475569;
+  margin-bottom: 4px;
+}
+
+.cv-item-bullets {
+  margin: 4px 0 0 18px;
+  padding: 0;
+  font-size: 11.5px;
+  color: #334155;
+  line-height: 1.45;
+}
+
+.cv-item-bullets li {
+  margin-bottom: 2px;
+}
+
+.cv-skills-category {
+  margin-bottom: 6px;
+  font-size: 11.5px;
+  color: #334155;
+}
+
+.cv-skills-category b {
+  color: #0f172a;
+}
+
+.cv-soft-chips,
+.cv-cert-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px 12px;
+  font-size: 11.5px;
+  color: #334155;
+}
+
+.cv-cert-card {
+  padding: 6px 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+}
+
+.cv-cert-card b {
+  display: block;
+  font-size: 11.5px;
+  color: #0f172a;
+}
+
+.cv-cert-card small {
+  color: #64748b;
+  font-size: 10px;
+}
+
+/* ============================================================
+   MOBILE RESPONSIVENESS (<= 768px) & SMARTPHONE PREVIEW MODE
    ============================================================ */
 @media (max-width: 768px) {
   /* Hide desktop hero elements */
@@ -2725,21 +2998,22 @@ body {
     display: none !important;
   }
 
-  /* Hide desktop hero name on phone too — clock widget replaces it */
+  /* Hide desktop hero typography on phone — phone clock widget replaces it */
   .hero-name {
     display: none !important;
   }
 
   /* Hero is reused as the lockscreen clock container */
   .hero {
-    top: 30%;
+    top: 52px !important;
     left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    padding: 0 16px;
-    margin-left: 0 !important;
+    transform: translateX(-50%) !important;
+    padding: 0 14px !important;
+    margin: 0 auto !important;
     align-items: center;
     text-align: center;
     width: 100%;
+    max-width: 440px;
   }
 
   /* Show phone status bar */
@@ -2748,7 +3022,7 @@ body {
     align-items: center;
     justify-content: space-between;
     height: 46px;
-    padding: 0 20px;
+    padding: 0 16px;
     position: absolute;
     top: 0;
     left: 0;
@@ -2757,7 +3031,7 @@ body {
     font-size: 13px;
     font-weight: 600;
     color: #fff;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 100%);
   }
 
   .phone-status-left {
@@ -2768,42 +3042,51 @@ body {
 
   .phone-time-text {
     font-weight: 700;
-    font-size: 13px;
+    font-size: 13.5px;
+    letter-spacing: -0.2px;
   }
 
   .phone-carrier {
-    font-size: 11px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.8);
-    background: rgba(255,255,255,0.15);
-    padding: 1px 5px;
-    border-radius: 3px;
+    font-size: 10.5px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.18);
+    padding: 1px 6px;
+    border-radius: 4px;
   }
 
   .phone-dynamic-island {
-    width: 100px;
+    width: 114px;
     height: 28px;
     background: #000;
     border-radius: 14px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
+    justify-content: space-between;
+    padding: 0 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.12);
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .phone-dynamic-island:hover {
+    transform: scale(1.05);
   }
 
   .phone-camera-dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #1a1a1a;
-    border: 1px solid rgba(255,255,255,0.1);
+    background: #111827;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    box-shadow: inset 0 0 3px rgba(56, 189, 248, 0.6);
   }
 
   .phone-status-right {
     display: flex;
-    gap: 8px;
+    gap: 7px;
     align-items: center;
-    font-size: 12px;
+    font-size: 11.5px;
   }
 
   /* Show phone clock widget — BIG iOS lockscreen clock */
@@ -2811,54 +3094,156 @@ body {
     display: flex !important;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
-    margin-bottom: 28px;
+    width: 100%;
+    margin-bottom: 20px;
   }
 
   .phone-digital-time {
-    font-family: 'Outfit', 'Segoe UI', sans-serif;
-    font-size: 72px;
+    font-family: 'Outfit', -apple-system, sans-serif;
+    font-size: clamp(54px, 14vw, 74px);
     font-weight: 300;
-    line-height: 1;
+    line-height: 0.95;
     color: #fff;
     letter-spacing: -3px;
-    text-shadow: 0 4px 30px rgba(0,0,0,0.8);
+    text-shadow: 0 4px 26px rgba(0,0,0,0.9);
   }
 
   .phone-date-sub {
-    font-size: 15px;
+    font-size: 13.5px;
     font-weight: 500;
-    color: rgba(255,255,255,0.85);
+    color: rgba(255,255,255,0.88);
     letter-spacing: 0.02em;
-    margin: 2px 0 14px;
+    margin: 4px 0 16px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.9);
   }
 
-  .phone-id-pill {
-    display: inline-flex;
+  /* Centered Mobile Profile Identity Card */
+  .phone-profile-card {
+    display: flex !important;
     align-items: center;
-    gap: 10px;
-    background: rgba(255, 255, 255, 0.14);
-    backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    padding: 8px 16px;
-    border-radius: 24px;
-    font-size: 13px;
-    font-weight: 600;
-    color: #fff;
+    gap: 12px;
+    background: rgba(18, 24, 38, 0.76);
+    backdrop-filter: blur(24px) saturate(190%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 18px;
+    padding: 12px 14px;
+    width: 100%;
+    text-align: left;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
     cursor: pointer;
-    transition: background 0.2s;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s;
   }
 
-  .phone-id-pill:hover {
-    background: rgba(255,255,255,0.22);
+  .phone-profile-card:hover {
+    background: rgba(28, 36, 56, 0.88);
+    border-color: rgba(56, 189, 248, 0.45);
+    transform: translateY(-2px);
   }
 
-  .phone-id-avatar {
-    width: 28px;
-    height: 28px;
+  .phone-avatar-box {
+    position: relative;
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+  }
+
+  .phone-avatar-img {
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    border: 1px solid rgba(255,255,255,0.4);
+    border: 2px solid #38bdf8;
+    box-shadow: 0 0 12px rgba(56,189,248,0.4);
+  }
+
+  .phone-online-dot {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 11px;
+    height: 11px;
+    background: #22c55e;
+    border: 2px solid #0f172a;
+    border-radius: 50%;
+  }
+
+  .phone-profile-meta {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .phone-profile-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    color: #fff;
+    margin: 0 0 2px;
+    letter-spacing: -0.3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .phone-profile-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: #38bdf8;
+    display: block;
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .phone-profile-tags {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    color: #94a3b8;
+  }
+
+  .phone-tag-avail {
+    color: #4ade80;
+    font-weight: 600;
+  }
+
+  /* Mobile Quick Action Pills */
+  .phone-action-pills {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .phone-pill-btn {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 12px;
+    padding: 8px 3px;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: #f1f5f9;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    transition: all 0.15s ease;
+  }
+
+  .phone-pill-btn:active,
+  .phone-pill-btn:hover {
+    background: rgba(56, 189, 248, 0.25);
+    border-color: rgba(56, 189, 248, 0.5);
+    transform: scale(0.96);
+  }
+
+  .phone-pill-primary {
+    background: rgba(14, 165, 233, 0.25);
+    border-color: rgba(56, 189, 248, 0.45);
   }
 
   /* Show phone home swipe bar at very bottom */
@@ -2870,62 +3255,81 @@ body {
     transform: translateX(-50%);
     width: 120px;
     height: 5px;
-    background: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.65);
     border-radius: 3px;
     z-index: 930;
     cursor: pointer;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.5);
   }
 
-  /* Icons become app dock at bottom of screen (iOS homescreen grid) */
+  /* Icons become bottom app dock */
   .icons {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px 8px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px 4px;
     top: auto;
-    bottom: 68px;
-    left: 12px;
-    right: 12px;
-    background: rgba(0,0,0,0.25);
-    backdrop-filter: blur(20px);
-    border-radius: 20px;
-    padding: 14px 10px;
-    border: 1px solid rgba(255,255,255,0.1);
+    bottom: 26px;
+    left: 10px;
+    right: 10px;
+    background: rgba(15, 23, 42, 0.68);
+    backdrop-filter: blur(28px) saturate(190%);
+    border-radius: 22px;
+    padding: 10px 6px;
+    border: 1px solid rgba(255,255,255,0.14);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.6);
   }
 
   .desktop-icon-btn {
     width: auto;
-    height: 68px;
-    font-size: 10px;
+    height: 58px;
+    font-size: 9px;
+    gap: 2px;
   }
 
-  /* Mobile taskbar becomes bottom dock */
-  .taskbar-widgets,
-  .taskbar-search-box,
-  .show-desktop-sliver,
-  .tray-lang {
-    display: none !important;
+  .icon-bubble {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
   }
 
+  .desktop-icon-btn[data-app="skills"],
+  .desktop-icon-btn[data-app="experience"],
+  .desktop-icon-btn[data-app="education"],
+  .desktop-icon-btn[data-app="bin"] {
+    display: none;
+  }
+
+  /* Mobile taskbar hidden */
   .win11-taskbar {
     height: 0;
     opacity: 0;
     pointer-events: none;
   }
 
-  .taskbar-center {
-    position: static;
-    transform: none;
-    flex: 1;
-    justify-content: space-around;
+  /* Windows open fullscreen sheet on mobile */
+  .window {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 42px !important;
+    bottom: 0 !important;
+    height: calc(100vh - 42px) !important;
+    max-height: calc(100vh - 42px) !important;
+    border-radius: 22px 22px 0 0 !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-bottom: none !important;
+    box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.8) !important;
   }
 
-  /* Windows open fullscreen on mobile */
-  .window {
-    width: calc(100vw - 16px) !important;
-    left: 8px !important;
-    top: 46px !important;
-    max-height: calc(100vh - 80px) !important;
-    height: calc(100vh - 80px) !important;
-    border-radius: 16px !important;
+  .window-title-bar {
+    height: 44px !important;
+    padding: 0 12px !important;
+  }
+
+  .window-content {
+    padding: 14px 12px 40px !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
   }
 
   .about-hero-card {
@@ -2937,18 +3341,37 @@ body {
     justify-content: center;
   }
 
-  .projects-cards-grid {
+  .about-highlights-row {
     grid-template-columns: 1fr;
+  }
+
+  .projects-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
   }
 
   .contact-channels-grid {
     grid-template-columns: 1fr;
   }
 
+  .digital-cv-sheet {
+    padding: 18px 14px;
+    margin: 8px 0;
+    border-radius: 8px;
+  }
+
+  .cv-cert-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cv-soft-chips {
+    grid-template-columns: 1fr;
+  }
+
   .win11-start-menu {
     width: calc(100vw - 16px);
     max-height: 80vh;
-    padding: 20px 20px 0;
+    padding: 18px 16px 0;
     bottom: 10px;
   }
 
@@ -2960,8 +3383,195 @@ body {
     grid-template-columns: 1fr;
   }
 
-  /* Hide win taskbar on phone — home indicator replaces it */
   .notif-count-badge {
     display: none;
   }
 }
+
+/* ============================================================
+   SMARTPHONE PREVIEW MODE TOGGLE (DESKTOP PREVIEW)
+   ============================================================ */
+body.phone-mode .edition-pill,
+body.phone-mode .hero-actions,
+body.phone-mode #subtitle,
+body.phone-mode .hero-name {
+  display: none !important;
+}
+
+body.phone-mode .hero {
+  top: 52px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  padding: 0 14px !important;
+  margin: 0 auto !important;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 440px;
+}
+
+body.phone-mode .phone-status-bar {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  height: 46px;
+  padding: 0 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 920;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 100%);
+}
+
+body.phone-mode .phone-clock-widget {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+body.phone-mode .phone-digital-time {
+  font-family: 'Outfit', -apple-system, sans-serif;
+  font-size: clamp(54px, 14vw, 74px);
+  font-weight: 300;
+  line-height: 0.95;
+  color: #fff;
+  letter-spacing: -3px;
+  text-shadow: 0 4px 26px rgba(0,0,0,0.9);
+}
+
+body.phone-mode .phone-date-sub {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.88);
+  letter-spacing: 0.02em;
+  margin: 4px 0 16px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+}
+
+body.phone-mode .phone-profile-card {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  background: rgba(18, 24, 38, 0.76);
+  backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  padding: 12px 14px;
+  width: 100%;
+  text-align: left;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s;
+}
+
+body.phone-mode .phone-profile-card:hover {
+  background: rgba(28, 36, 56, 0.88);
+  border-color: rgba(56, 189, 248, 0.45);
+  transform: translateY(-2px);
+}
+
+body.phone-mode .phone-action-pills {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  width: 100%;
+  margin-top: 12px;
+}
+
+body.phone-mode .phone-pill-btn {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+  padding: 8px 3px;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #f1f5f9;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  transition: all 0.15s ease;
+}
+
+body.phone-mode .phone-home-indicator {
+  display: block !important;
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 3px;
+  z-index: 930;
+  cursor: pointer;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.5);
+}
+
+body.phone-mode .icons {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px 4px;
+  top: auto;
+  bottom: 26px;
+  left: 10px;
+  right: 10px;
+  background: rgba(15, 23, 42, 0.68);
+  backdrop-filter: blur(28px) saturate(190%);
+  border-radius: 22px;
+  padding: 10px 6px;
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+}
+
+body.phone-mode .desktop-icon-btn {
+  width: auto;
+  height: 58px;
+  font-size: 9px;
+  gap: 2px;
+}
+
+body.phone-mode .desktop-icon-btn[data-app="skills"],
+body.phone-mode .desktop-icon-btn[data-app="experience"],
+body.phone-mode .desktop-icon-btn[data-app="education"],
+body.phone-mode .desktop-icon-btn[data-app="bin"] {
+  display: none;
+}
+
+body.phone-mode .win11-taskbar {
+  display: none !important;
+}
+
+body.phone-mode .window {
+  width: 440px !important;
+  max-width: 95vw !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  top: 44px !important;
+  bottom: 14px !important;
+  height: calc(100vh - 60px) !important;
+  max-height: calc(100vh - 60px) !important;
+  border-radius: 22px !important;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.85) !important;
+}
+
+body.phone-mode .projects-cards-grid {
+  grid-template-columns: 1fr !important;
+}
+
+body.phone-mode .about-hero-card {
+  grid-template-columns: 1fr !important;
+  text-align: center;
+}
+
+body.phone-mode .about-highlights-row {
+  grid-template-columns: 1fr !important;
+}
+
