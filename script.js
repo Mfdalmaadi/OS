@@ -40,11 +40,17 @@ function dismissToast() {
    Clipboard Helper
    ------------------------------------------------------------ */
 function copyText(text, label = "Item") {
-  navigator.clipboard.writeText(text).then(() => {
-    showToast(`${label} ${t("copied to clipboard!", "copié dans le presse-papier !")}`, "📋");
-  }).catch(() => {
-    showToast(text, "📋");
-  });
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      showToast(
+        `${label} ${t("copied to clipboard!", "copié dans le presse-papier !")}`,
+        "📋",
+      );
+    })
+    .catch(() => {
+      showToast(text, "📋");
+    });
 }
 
 /* ------------------------------------------------------------
@@ -121,7 +127,9 @@ function onTaskbarSearch(query) {
 
 function filterStartMenu(query) {
   const q = (query || "").toLowerCase();
-  const pinnedBtns = document.querySelectorAll("#start-pinned-list .start-app-btn");
+  const pinnedBtns = document.querySelectorAll(
+    "#start-pinned-list .start-app-btn",
+  );
   pinnedBtns.forEach((btn) => {
     const text = btn.textContent.toLowerCase();
     btn.style.display = text.includes(q) ? "flex" : "none";
@@ -160,7 +168,7 @@ const apps = {
             <p>
               ${t(
                 "Results-driven Full-Stack Developer holding a degree in Computer Engineering (HIGH-TECH Rabat) and a Specialized Web Full-Stack diploma (OFPPT NTIC Tangier). Proficient in React, Laravel, Node.js, MySQL, and Python, with core competencies in REST APIs, databases, and OOP. Backed by production experience at Web Media Networks automating email infrastructure and resolving deliverability challenges, I engineer modern, scalable web applications and seek to contribute to high-impact software engineering teams.",
-                "Développeur Full-Stack diplômé en génie informatique (HIGH-TECH Rabat) et en développement Web Full-Stack (OFPPT NTIC Tanger). Maîtrise de React, Laravel, Node.js, MySQL et Python, avec des compétences éprouvées en API REST, bases de données et POO. Fort d'une solide expérience chez Web Media Networks en automatisation d'infrastructure email et analyse de délivrabilité, je souhaite intégrer une équipe moderne où je pourrai concevoir des solutions performantes, apprendre rapidement et évoluer professionnellement."
+                "Développeur Full-Stack diplômé en génie informatique (HIGH-TECH Rabat) et en développement Web Full-Stack (OFPPT NTIC Tanger). Maîtrise de React, Laravel, Node.js, MySQL et Python, avec des compétences éprouvées en API REST, bases de données et POO. Fort d'une solide expérience chez Web Media Networks en automatisation d'infrastructure email et analyse de délivrabilité, je souhaite intégrer une équipe moderne où je pourrai concevoir des solutions performantes, apprendre rapidement et évoluer professionnellement.",
               )}
             </p>
           </div>
@@ -225,7 +233,7 @@ const apps = {
         <h2 class="section-title">${t("Software Projects", "Projets Logiciels")}</h2>
         <p class="section-desc">${t(
           "Featured platforms from my resume with actual production screenshots, alongside active enterprise systems.",
-          "Projets vérifiés issus du CV avec captures réelles, accompagnés d'architectures d'entreprise et d'outils open-source."
+          "Projets vérifiés issus du CV avec captures réelles, accompagnés d'architectures d'entreprise et d'outils open-source.",
         )}</p>
       </div>
 
@@ -262,7 +270,7 @@ const apps = {
             <p>
               ${t(
                 "AI-assisted medical diagnostic platform with FastAPI and React. Designed a secure REST API with JWT authentication and patient/user management. Developed a Random Forest ML model with prediction explainability via SHAP and integrated with MySQL.",
-                "Plateforme d’aide au diagnostic basée sur l’IA avec FastAPI et React. Conception d’une API REST sécurisée avec JWT et gestion patients. Modèle Random Forest avec explicabilité via SHAP et persistance MySQL."
+                "Plateforme d’aide au diagnostic basée sur l’IA avec FastAPI et React. Conception d’une API REST sécurisée avec JWT et gestion patients. Modèle Random Forest avec explicabilité via SHAP et persistance MySQL.",
               )}
             </p>
             <ul class="project-feature-list">
@@ -306,7 +314,7 @@ const apps = {
             <p>
               ${t(
                 "Full-stack tourism platform dedicated to visitors of Northern Morocco. Architecture of a secure REST API with multi-role authentication. Management dashboards, booking workflows, and interactive regional discovery maps.",
-                "Plateforme touristique dédiée aux visiteurs du nord du Maroc. Conception d’une API REST sécurisée avec authentification multi-rôles, tableaux de bord de gestion et cartes interactives."
+                "Plateforme touristique dédiée aux visiteurs du nord du Maroc. Conception d’une API REST sécurisée avec authentification multi-rôles, tableaux de bord de gestion et cartes interactives.",
               )}
             </p>
             <ul class="project-feature-list">
@@ -347,7 +355,7 @@ const apps = {
             <p>
               ${t(
                 "Real-time diagnostic platform for IP address reachability, server uptime, and email delivery telemetry. Triggers automated remediation scripts and alerts when anomalies are detected.",
-                "Outil automatisé de supervision en temps réel des adresses IP, de la disponibilité des serveurs et de la délivrabilité email avec scripts d'auto-remédiation."
+                "Outil automatisé de supervision en temps réel des adresses IP, de la disponibilité des serveurs et de la délivrabilité email avec scripts d'auto-remédiation.",
               )}
             </p>
             <ul class="project-feature-list">
@@ -388,7 +396,7 @@ const apps = {
             <p>
               ${t(
                 "Enterprise Java Spring Boot microservices platform featuring decoupled services for auth, catalog, and orders. Optimized with Redis caching and containerized with Docker.",
-                "Architecture d’entreprise en microservices avec Java Spring Boot et React. Gestion des services indépendants, mise en cache Redis et conteneurisation Docker."
+                "Architecture d’entreprise en microservices avec Java Spring Boot et React. Gestion des services indépendants, mise en cache Redis et conteneurisation Docker.",
               )}
             </p>
             <ul class="project-feature-list">
@@ -425,7 +433,7 @@ const apps = {
             <p>
               ${t(
                 "A lightweight command-line utility built with Python and Bash for automating server provisioning, database backups, and scheduled maintenance tasks.",
-                "Outil CLI léger en Python et Bash pour automatiser la maintenance des serveurs, la rotation des sauvegardes et le déploiement continu."
+                "Outil CLI léger en Python et Bash pour automatiser la maintenance des serveurs, la rotation des sauvegardes et le déploiement continu.",
               )}
             </p>
             <ul class="project-feature-list">
@@ -460,7 +468,7 @@ const apps = {
         <h2 class="section-title">${t("Skills & Technologies", "Compétences & Technologies")}</h2>
         <p class="section-desc">${t(
           "Directly sourced from verified resume. Structured, concise, and focused on production-ready engineering.",
-          "Compétences techniques et humaines issues directement du CV, organisées de manière claire et concise."
+          "Compétences techniques et humaines issues directement du CV, organisées de manière claire et concise.",
         )}</p>
       </div>
 
@@ -583,7 +591,7 @@ const apps = {
         <h2 class="section-title">${t("Expérience Professionnelle", "Expérience Professionnelle")}</h2>
         <p class="section-desc">${t(
           "Engineering automation scripts, email infrastructure optimization, and responsive web development.",
-          "Développement de scripts d’automatisation, optimisation d’infrastructure email et conception web."
+          "Développement de scripts d’automatisation, optimisation d’infrastructure email et conception web.",
         )}</p>
       </div>
 
@@ -656,7 +664,7 @@ const apps = {
         <h2 class="section-title">${t("Formation Académique", "Formation Académique")}</h2>
         <p class="section-desc">${t(
           "Scientific foundation, digital full-stack web development, and computer engineering sciences.",
-          "Des sciences fondamentales au développement digital web full-stack et au génie informatique."
+          "Des sciences fondamentales au développement digital web full-stack et au génie informatique.",
         )}</p>
       </div>
 
@@ -715,7 +723,7 @@ const apps = {
         <h2 class="section-title">${t("Certifications", "Certifications")}</h2>
         <p class="section-desc">${t(
           "Verified credentials from Cisco Networking Academy, 365 Data Science, and efe Maroc.",
-          "Certifications reconnues auprès d'institutions internationales et régionales."
+          "Certifications reconnues auprès d'institutions internationales et régionales.",
         )}</p>
       </div>
 
@@ -764,7 +772,7 @@ const apps = {
         <h2 class="section-title">${t("Me Contacter", "Me Contacter")}</h2>
         <p class="section-desc">${t(
           "Click below to compose an email directly, reach out via WhatsApp, or connect on LinkedIn.",
-          "Cliquez pour composer un email instantanément, échanger sur WhatsApp ou visiter mon profil LinkedIn."
+          "Cliquez pour composer un email instantanément, échanger sur WhatsApp ou visiter mon profil LinkedIn.",
         )}</p>
       </div>
 
@@ -1015,7 +1023,8 @@ function openApp(name) {
     return;
   }
 
-  const isMobile = window.innerWidth <= 900 || document.body.classList.contains("phone-mode");
+  const isMobile =
+    window.innerWidth <= 900 || document.body.classList.contains("phone-mode");
 
   let w = document.createElement("section");
   w.className = "window " + (appData[3] || "");
@@ -1025,8 +1034,14 @@ function openApp(name) {
     w.style.zIndex = ++zIndexCounter;
   } else {
     windowOffset = (windowOffset + 24) % 140;
-    let leftPos = Math.max(20, Math.min(80 + windowOffset, window.innerWidth - 880));
-    let topPos = Math.max(20, Math.min(40 + windowOffset / 2, window.innerHeight - 620));
+    let leftPos = Math.max(
+      20,
+      Math.min(80 + windowOffset, window.innerWidth - 880),
+    );
+    let topPos = Math.max(
+      20,
+      Math.min(40 + windowOffset / 2, window.innerHeight - 620),
+    );
     w.style.cssText = `left:${leftPos}px;top:${topPos}px;z-index:${++zIndexCounter}`;
   }
   w.innerHTML = `
@@ -1110,8 +1125,17 @@ function enableWindowDrag(w) {
     bar.setPointerCapture(e.pointerId);
 
     bar.onpointermove = (moveEvent) => {
-      let nextLeft = Math.max(0, Math.min(window.innerWidth - 100, origLeft + moveEvent.clientX - startX));
-      let nextTop = Math.max(0, Math.min(window.innerHeight - 90, origTop + moveEvent.clientY - startY));
+      let nextLeft = Math.max(
+        0,
+        Math.min(
+          window.innerWidth - 100,
+          origLeft + moveEvent.clientX - startX,
+        ),
+      );
+      let nextTop = Math.max(
+        0,
+        Math.min(window.innerHeight - 90, origTop + moveEvent.clientY - startY),
+      );
       w.style.left = nextLeft + "px";
       w.style.top = nextTop + "px";
     };
@@ -1176,17 +1200,25 @@ const termReply = (cmd) => {
 <span class="term-cyan">                      Edu:</span> HIGH-TECH Rabat · OFPPT NTIC Tanger`,
     date: `<span class="term-green">${new Date().toLocaleString()}</span>`,
   };
-  return map[cmd] ?? `<span class="term-danger">command not found:</span> <b>${cmd}</b> — type <span class="term-accent">help</span> for available commands.`;
+  return (
+    map[cmd] ??
+    `<span class="term-danger">command not found:</span> <b>${cmd}</b> — type <span class="term-accent">help</span> for available commands.`
+  );
 };
 
 function termRun(cmd) {
   const out = document.getElementById("term-output");
   const input = document.getElementById("term-input");
   if (!out) return;
-  if (cmd === "clear") { out.innerHTML = ""; if (input) input.value = ""; return; }
+  if (cmd === "clear") {
+    out.innerHTML = "";
+    if (input) input.value = "";
+    return;
+  }
   const res = termReply(cmd);
-  out.insertAdjacentHTML("beforeend",
-    `<div class="term-line"><span class="term-prompt-label"><span class="term-cyan">ElMoufaddal</span><span class="term-muted">@</span><span class="term-accent">Portfolio</span><span class="term-muted"> ~</span><span class="term-green"> ❯</span></span> <span class="term-cmd-echo">${cmd}</span></div><div class="term-result">${res}</div>`
+  out.insertAdjacentHTML(
+    "beforeend",
+    `<div class="term-line"><span class="term-prompt-label"><span class="term-cyan">ElMoufaddal</span><span class="term-muted">@</span><span class="term-accent">Portfolio</span><span class="term-muted"> ~</span><span class="term-green"> ❯</span></span> <span class="term-cmd-echo">${cmd}</span></div><div class="term-result">${res}</div>`,
   );
   const content = out.closest(".content");
   if (content) content.scrollTop = 99999;
@@ -1265,7 +1297,7 @@ function toggleCalendar(e) {
 
 function toggleShowDesktop() {
   const windows = document.querySelectorAll(".window");
-  let anyVisible = Array.from(windows).some(w => w.style.display !== "none");
+  let anyVisible = Array.from(windows).some((w) => w.style.display !== "none");
   windows.forEach((w) => {
     w.style.display = anyVisible ? "none" : "flex";
   });
@@ -1274,7 +1306,7 @@ function toggleShowDesktop() {
 
 function closeAllMobileWindows() {
   const windows = document.querySelectorAll(".window");
-  windows.forEach(w => w.remove());
+  windows.forEach((w) => w.remove());
   updateTaskbarIndicators();
   showToast(t("Homescreen", "Écran d'accueil"), "🏠");
 }
@@ -1303,7 +1335,12 @@ function togglePhoneMode() {
   const isPhone = document.body.classList.contains("phone-mode");
   const btn = document.getElementById("btn-phone-mode");
   if (btn) btn.classList.toggle("active", isPhone);
-  showToast(isPhone ? t("Smartphone Mode Activated", "Mode Smartphone Activé") : t("Desktop Mode Activated", "Mode Bureau Activé"), "📱");
+  showToast(
+    isPhone
+      ? t("Smartphone Mode Activated", "Mode Smartphone Activé")
+      : t("Desktop Mode Activated", "Mode Bureau Activé"),
+    "📱",
+  );
 }
 
 function toggleCalendarMini() {
@@ -1339,7 +1376,13 @@ function powerAction(action) {
       showToast(t("Windows restarted successfully", "Système redémarré"), "↻");
     }
   } else if (action === "shutdown") {
-    showToast(t("To close this portfolio session, you can close the browser tab.", "Pour quitter, fermez simplement l'onglet."), "⏻");
+    showToast(
+      t(
+        "To close this portfolio session, you can close the browser tab.",
+        "Pour quitter, fermez simplement l'onglet.",
+      ),
+      "⏻",
+    );
   }
 }
 
@@ -1350,7 +1393,10 @@ function toggleQuickTile(btn) {
   btn.classList.toggle("active");
   const bTag = btn.querySelector("b");
   const name = bTag ? bTag.textContent : "Feature";
-  showToast(`${name} ${btn.classList.contains("active") ? t("Enabled", "Activé") : t("Disabled", "Désactivé")}`, "⚙");
+  showToast(
+    `${name} ${btn.classList.contains("active") ? t("Enabled", "Activé") : t("Disabled", "Désactivé")}`,
+    "⚙",
+  );
 }
 
 function toggleDarkMode(btn) {
@@ -1365,7 +1411,7 @@ function toggleDarkMode(btn) {
 function adjustBrightness(val) {
   const vignette = document.querySelector(".rust-vignette");
   if (vignette) {
-    const darkness = 1 - (val / 100);
+    const darkness = 1 - val / 100;
     vignette.style.background = `radial-gradient(circle at 50% 40%, rgba(4,6,10,${darkness * 0.6}) 0%, rgba(4,6,10,${0.65 + darkness * 0.3}) 55%, rgba(2,3,6,0.98) 100%)`;
   }
 }
@@ -1389,7 +1435,7 @@ function refreshDesktop() {
 
 function changeIconSize(size) {
   const btns = document.querySelectorAll(".desktop-icon-btn");
-  btns.forEach(b => {
+  btns.forEach((b) => {
     if (size === "large") {
       b.style.width = "94px";
       b.style.height = "94px";
@@ -1407,7 +1453,11 @@ const ctxMenu = document.getElementById("context-menu");
 
 if (desktopSurface && ctxMenu) {
   desktopSurface.addEventListener("contextmenu", (e) => {
-    if (e.target.closest(".window") || e.target.closest(".win11-taskbar") || e.target.closest(".win11-start-menu")) {
+    if (
+      e.target.closest(".window") ||
+      e.target.closest(".win11-taskbar") ||
+      e.target.closest(".win11-start-menu")
+    ) {
       return;
     }
     e.preventDefault();
@@ -1419,19 +1469,33 @@ if (desktopSurface && ctxMenu) {
 }
 
 document.addEventListener("click", (e) => {
-  if (!e.target.closest("#startmenu") && !e.target.closest("#start") && !e.target.closest("#taskbar-search")) {
+  if (
+    !e.target.closest("#startmenu") &&
+    !e.target.closest("#start") &&
+    !e.target.closest("#taskbar-search")
+  ) {
     const menu = document.getElementById("startmenu");
     if (menu) menu.classList.remove("open");
   }
-  if (!e.target.closest("#quick-settings") && !e.target.closest("#btn-quick-settings")) {
+  if (
+    !e.target.closest("#quick-settings") &&
+    !e.target.closest("#btn-quick-settings")
+  ) {
     const q = document.getElementById("quick-settings");
     if (q) q.classList.remove("open");
   }
-  if (!e.target.closest("#widgets-panel") && !e.target.closest("#btn-widgets")) {
+  if (
+    !e.target.closest("#widgets-panel") &&
+    !e.target.closest("#btn-widgets")
+  ) {
     const w = document.getElementById("widgets-panel");
     if (w) w.classList.remove("open");
   }
-  if (!e.target.closest("#calendar-flyout") && !e.target.closest("#btn-clock") && !e.target.closest("#btn-bell")) {
+  if (
+    !e.target.closest("#calendar-flyout") &&
+    !e.target.closest("#btn-clock") &&
+    !e.target.closest("#btn-bell")
+  ) {
     const c = document.getElementById("calendar-flyout");
     if (c) c.classList.remove("open");
   }
@@ -1445,11 +1509,16 @@ document.addEventListener("click", (e) => {
    ------------------------------------------------------------ */
 const selectionBox = document.getElementById("selection-box");
 let isDraggingMarquee = false;
-let marqueeStartX = 0, marqueeStartY = 0;
+let marqueeStartX = 0,
+  marqueeStartY = 0;
 
 if (desktopSurface && selectionBox) {
   desktopSurface.addEventListener("mousedown", (e) => {
-    if (e.target !== desktopSurface && !e.target.classList.contains("rust-wallpaper")) return;
+    if (
+      e.target !== desktopSurface &&
+      !e.target.classList.contains("rust-wallpaper")
+    )
+      return;
     isDraggingMarquee = true;
     marqueeStartX = e.clientX;
     marqueeStartY = e.clientY;
@@ -1502,7 +1571,8 @@ function toggleLanguage() {
   }
 
   if (heroAbout) heroAbout.textContent = fr ? "À Propos" : "About Me";
-  if (heroProjects) heroProjects.textContent = fr ? "Voir Projets" : "Explore Projects";
+  if (heroProjects)
+    heroProjects.textContent = fr ? "Voir Projets" : "Explore Projects";
   if (heroCv) heroCv.textContent = fr ? "CV (PDF)" : "Resume (PDF)";
 
   document.querySelectorAll(".window").forEach((win) => {
@@ -1513,7 +1583,9 @@ function toggleLanguage() {
     win.remove();
     if (appName) {
       openApp(appName);
-      const reOpened = document.querySelector(`.window[data-name="${appName}"]`);
+      const reOpened = document.querySelector(
+        `.window[data-name="${appName}"]`,
+      );
       if (reOpened) {
         if (isMax) reOpened.classList.add("max");
         reOpened.style.left = l;
@@ -1530,7 +1602,10 @@ function toggleLanguage() {
    ------------------------------------------------------------ */
 function updateClock() {
   const d = new Date();
-  const timeStr = d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  const timeStr = d.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
   const dateShortStr = d.toLocaleDateString("en-GB");
   const dateLongStr = d.toLocaleDateString(fr ? "fr-FR" : "en-GB", {
     weekday: "long",
@@ -1561,7 +1636,9 @@ function renderCalendar() {
   const curDay = d.getDate();
   const daysHeader = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
 
-  let html = daysHeader.map(dh => `<div class="cal-head">${dh}</div>`).join("");
+  let html = daysHeader
+    .map((dh) => `<div class="cal-head">${dh}</div>`)
+    .join("");
   for (let i = 1; i <= 30; i++) {
     const isToday = i === curDay ? "today" : "";
     html += `<div class="cal-day ${isToday}">${i}</div>`;
@@ -1601,9 +1678,9 @@ setTimeout(() => {
   showToast(
     t(
       "Welcome to El Moufaddal Maadi's Windows 11 Portfolio. Click Start or any icon to explore.",
-      "Bienvenue sur le portfolio Windows 11 d'El Moufaddal Maadi. Cliquez sur une icône pour explorer."
+      "Bienvenue sur le portfolio Windows 11 d'El Moufaddal Maadi. Cliquez sur une icône pour explorer.",
     ),
     "👋",
-    "El Moufaddal Maadi"
+    "El Moufaddal Maadi",
   );
 }, 1200);
