@@ -292,7 +292,7 @@ const apps = {
               <button class="btn-project-action btn-primary-action" onclick="openLightbox('assets/medpredict.jpg', 'MedPredict AI Interface', 'Doctor registration & workflow')">
                 🖼 ${t("View Screenshot", "Voir Capture")}
               </button>
-              <a href="https://github.com/Mfdalmaadi" target="_blank" rel="noreferrer" class="btn-project-action">
+              <a href="https://github.com/Mfdalmaadi/medpredect.v.0.1" target="_blank" rel="noreferrer" class="btn-project-action">
                 🐙 ${t("GitHub", "Dépôt")} ↗
               </a>
             </div>
@@ -333,7 +333,7 @@ const apps = {
               <button class="btn-project-action btn-primary-action" onclick="openLightbox('assets/theguide.jpg', 'THE GUIDE — Explore the North', 'Chefchaouen & Northern Morocco Discovery')">
                 🖼 ${t("View Screenshot", "Voir Capture")}
               </button>
-              <a href="https://github.com/Mfdalmaadi" target="_blank" rel="noreferrer" class="btn-project-action">
+              <a href="https://github.com/Ashraf-gitgud/The-Guide-App" target="_blank" rel="noreferrer" class="btn-project-action">
                 🐙 ${t("GitHub", "Dépôt")} ↗
               </a>
             </div>
